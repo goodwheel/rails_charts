@@ -59,6 +59,11 @@ module RailsCharts
               var option = #{option};
               option && chart.setOption(option);
 
+                chart.on('click', function(params) {
+  // Print name in console
+  console.log(params);
+});
+
               window.RailsCharts.charts["#{container_id}"] = chart;
             }
 
