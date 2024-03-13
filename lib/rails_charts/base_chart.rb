@@ -60,8 +60,10 @@ module RailsCharts
               option && chart.setOption(option);
 
                 chart.on('click', function(params) {
+                  if(!params.data.link) { return; }
   // Print name in console
-  console.log(params);
+  console.log(params.data.link);
+                  Turbo.visit(params.data.link);
 });
 
               window.RailsCharts.charts["#{container_id}"] = chart;
